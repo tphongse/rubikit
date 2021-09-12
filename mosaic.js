@@ -92,7 +92,7 @@ function calAvgRGB(pixels)
 function convert()
 {
     let srcImage = cv.imread('imageInput');
-    let dstImage = new cv.Mat(srcImage.rows, srcImage.cols, cv.CV_8UC3, new cv.Scalar(255, 255, 255));
+    let dstImage = new cv.Mat(srcImage.rows+2, srcImage.cols+2, cv.CV_8UC3, new cv.Scalar(255, 255, 255));
     let rows = srcImage.rows;
     let cols = srcImage.cols;
     let i;
@@ -132,6 +132,22 @@ function convert()
                   
         }
     }
+    
+    let showGrid = document.getElementById('showGrid');
+    if(showGrid.checked)
+    {
+        for (let i = 0; i <= rows; i++) {
+            for (let j = 0; j <= cols; j++) {
+                if((i % 16 ==0) || (j%16 ==0))
+                {
+                    dstImage.ucharPtr(i, j)[0] = 0;
+                    dstImage.ucharPtr(i, j)[1] = 0;
+                    dstImage.ucharPtr(i, j)[2] = 0;
+                }
+            }
+        }
+    }
+    
     let canvasOutput = document.getElementById('imageOutput');
     cv.imshow(canvasOutput, dstImage);
     document.getElementById('imageOutput').hidden = false;
