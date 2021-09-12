@@ -92,7 +92,7 @@ function calAvgRGB(pixels)
 function convert()
 {
     let srcImage = cv.imread('imageInput');
-    let dstImage = new cv.Mat(srcImage.rows, srcImage.cols, cv.CV_8UC3, new cv.Scalar(0, 0, 0));
+    let dstImage = new cv.Mat(srcImage.rows, srcImage.cols, cv.CV_8UC3, new cv.Scalar(255, 255, 255));
     let rows = srcImage.rows;
     let cols = srcImage.cols;
     let i;
