@@ -98,8 +98,8 @@ function convert()
     let i;
     let j;
 
-    for (i = 0; i < rows; i+=rubicSize+padding) {
-        for (j = 0; j < cols; j+=rubicSize+padding) {
+    for (i = 0; i < rows; i+=(rubicSize+padding)) {
+        for (j = 0; j < cols; j+=(rubicSize+padding)) {
             
             let pixels = [];
             for(let k = 0; k<rubicSize; k++)
