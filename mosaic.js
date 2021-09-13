@@ -135,6 +135,7 @@ function convert()
     
     let showGrid = document.getElementById('showGrid');
     let total = rubicSize + padding;
+    total = total * total;
     if(showGrid.checked)
     {
         for (let i = 0; i <= rows; i++) {
