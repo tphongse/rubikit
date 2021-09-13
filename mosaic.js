@@ -36,8 +36,8 @@ function calPixelDiff(pixelA, pixelB)
     let deltaG = pixelA[1] - pixelB[1];
     let deltaB = pixelA[2] - pixelB[2];
     let R = (pixelA[0] + pixelB[0])/2;
-
-    return Math.sqrt(2*deltaR*deltaR + 4*deltaG*deltaG + 3*deltaB*deltaB);
+    return Math.sqrt( (2+R/256)*(deltaR*deltaR) + 4*(deltaG*deltaG) + (2+(255-R)/256)*(deltaB*deltaB) );
+    //return Math.sqrt(2*deltaR*deltaR + 4*deltaG*deltaG + 3*deltaB*deltaB);
 }
 
 function getCube(cube, avgRGB)
