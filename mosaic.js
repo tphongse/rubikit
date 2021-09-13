@@ -9,8 +9,6 @@ let cube = [[255,255,255],
 [255,255,0],
 [0,255,255],
 [255,0,255],
-[192,192,192],
-[128,128,128],
 [128,0,0],
 [128,128,0],
 [0,128,0],
@@ -136,11 +134,12 @@ function convert()
     }
     
     let showGrid = document.getElementById('showGrid');
+    let total = rubicSize + padding;
     if(showGrid.checked)
     {
         for (let i = 0; i <= rows; i++) {
             for (let j = 0; j <= cols; j++) {
-                if((i % 16 ==0) || (j%16 ==0))
+                if((i % total ==0) || (j%total ==0))
                 {
                     dstImage.ucharPtr(i, j)[0] = 0;
                     dstImage.ucharPtr(i, j)[1] = 0;
